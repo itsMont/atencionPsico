@@ -4,6 +4,7 @@
  */
 package com.mycompany.atencionpsico.Model;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -19,7 +20,7 @@ public class Conexion {
         public static String pass = "";
         public static String url = "jdbc:mysql://localhost:3306/atencionPsico";
         
-        public static boolean conectarDB() throws SQLException{
+        public static Connection conectarDB() throws SQLException{
         con = null;
         try {
             con =  DriverManager.getConnection(url, user, pass);
@@ -28,9 +29,10 @@ public class Conexion {
             }
         } catch (Exception e) {
             System.out.println("Conexión no exitosa");
-            return false;
         }
-        return true;
+        return con;
     }
+        
+        
     
 }
