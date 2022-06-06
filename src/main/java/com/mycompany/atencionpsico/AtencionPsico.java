@@ -19,7 +19,7 @@ import java.sql.SQLException;
 public class AtencionPsico {
 
     public static void main(String[] args) throws SQLException {
-        Student estudiante1 = new Student("Andre Gonzales", "andres@email.com", "Ingeniería Civil");
+        Student estudiante1 = new Student("Patricia Ahumada", "patricia@email.com", "Ingeniería Civil");
         // Inicializar Menu Inicial
         new MenuInicio().setVisible(true);
         
@@ -27,6 +27,6 @@ public class AtencionPsico {
         // Llamada al controller
         StudentController controladorEstudiante = new StudentController();
         StudentController.getInfo(estudiante1);
-        controladorEstudiante.guardar(conexion, estudiante1);
+        //controladorEstudiante.guardar(conexion, estudiante1);
     }
 }

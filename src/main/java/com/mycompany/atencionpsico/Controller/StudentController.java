@@ -30,7 +30,7 @@ public class StudentController {
         // Inserción de datos en BD
         consulta.setString(1, student.getNombre());
         consulta.setString(2, student.getEmail());
-        consulta.setString(3, student.getNombre());
+        consulta.setString(3, student.getCarrera());
         
         // Ejecutar Consulta
         consulta.executeUpdate();
