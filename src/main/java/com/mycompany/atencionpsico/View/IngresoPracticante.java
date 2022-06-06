@@ -46,9 +46,9 @@ public class IngresoPracticante extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Ingreso Practicantes");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/img/ingresoPracticante.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ingresoPracticante.png"))); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/img/contact_mai.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/contact_mai.png"))); // NOI18N
 
         jTextField1.setFont(new java.awt.Font("Roboto Medium", 0, 20)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -64,7 +64,7 @@ public class IngresoPracticante extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(204, 0, 0));
         jButton1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/img/contact_mail_FILL0_wght400_GRAD0_opsz48.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/contact_mail_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

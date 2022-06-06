@@ -1,3 +1,13 @@
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Model/Psychologist.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/IngresoPracticante.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Model/Student.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Model/Appointment.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Controller/StudentController.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Model/Tutor.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Controller/TutorController.java
 /home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/AtencionPsico.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Controller/PsychologistController.java
 /home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/MenuInicio.java
 /home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Model/Conexion.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Model/AppointmentState.java
+/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/Model/PsychologistAvailability.java

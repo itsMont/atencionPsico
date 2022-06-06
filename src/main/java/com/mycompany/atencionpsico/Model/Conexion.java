@@ -7,6 +7,7 @@ package com.mycompany.atencionpsico.Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,7 +29,11 @@ public class Conexion {
                 System.out.println("Conexión exitosa");
             }
         } catch (Exception e) {
-            System.out.println("Conexión no exitosa");
+            // Llamar un Dialogo en caso de que falle algo con la BD
+            JOptionPane.showMessageDialog(null,
+                "No se puede conectar correctamente a la Base de Datos.\nIntentelo nuevamente.",
+                "Error de conexión con la Base de Datos",
+                JOptionPane.ERROR_MESSAGE);
         }
         return con;
     }

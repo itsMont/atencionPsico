@@ -44,12 +44,12 @@ public class MenuInicio extends javax.swing.JFrame {
         setForeground(java.awt.Color.gray);
         setResizable(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/img/banner01.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/banner01.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel1.setText("Ingresa con tu código designado");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/img/contact_mai.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/contact_mai.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         jLabel4.setText("Sistema de Atención Psicológica - UNAL");
@@ -67,7 +67,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("/home/jhojan/NetBeansProjects/atencionPsico/src/main/java/com/mycompany/atencionpsico/View/img/contact_mail_FILL0_wght400_GRAD0_opsz48.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/contact_mail_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         jButton1.setText("Ingresar");
         jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
