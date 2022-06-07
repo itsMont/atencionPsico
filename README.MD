@@ -3,9 +3,9 @@ Este es un programa desarrollado para la materia POO para el parcial 2. Este pro
 Tiene el objetivo de ser un sistema de información donde los estudiantes puedan agendar una cita de apoyo psicológico y posteriormente consultar la información asociada a esta.
 ## Requerimientos 📝
 ### Planteamiento
-- El practicante de Psicología debe ser registrado con la siguiente información: **nombre**, **correo electrónico** y un **profesor tutor asignado**
-- Cada profesor tutor tiene **nombre** y **correo electrónico**
-- Cada estudiante tiene **código, nombre, correo electrónico y carrera**
+- ~~El practicante de Psicología debe ser registrado con la siguiente información: **nombre**, **correo electrónico** y un **profesor tutor asignado**~~
+- ~~Cada profesor tutor tiene **nombre** y **correo electrónico**~~
+- ~~Cada estudiante tiene **código, nombre, correo electrónico y carrera**~~
 - Cada estudiante podrá ver disponibilidad de practicantes por **fecha y hora**
 - El estudiante **podrá agendar una consulta psicológica según la disponibilidad de los practicantes**
 - El practicante podrá dar **por iniciada o finalizada una consulta psicológica**
@@ -14,8 +14,8 @@ Tiene el objetivo de ser un sistema de información donde los estudiantes puedan
 ### Implementación 💻
 - ~~Usted debe utilizar un patrón de datos~~
 - ~~Persistencia de datos (el método de su preferencia)~~
-- Uso de Colecciones de tipo Set
-- Imprimir todos los practicantes registrados en el sistema
+- ~~Uso de Colecciones de tipo Set~~
+- ~~Imprimir todos los practicantes registrados en el sistema~~
 - Obtener la disponibilidad de un practicante, dado su correo electrónico y un rango de tiempo
 - Obtener la información de un estudiante a partir de su código
 - Obtener la información de un practicante a partir de su correo electrónico
