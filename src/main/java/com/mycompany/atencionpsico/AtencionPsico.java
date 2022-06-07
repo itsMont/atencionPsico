@@ -5,8 +5,10 @@
 
 package com.mycompany.atencionpsico;
 
+import com.mycompany.atencionpsico.Controller.PsychologistController;
 import com.mycompany.atencionpsico.Controller.StudentController;
 import com.mycompany.atencionpsico.Model.Conexion;
+import com.mycompany.atencionpsico.Model.Psychologist;
 import com.mycompany.atencionpsico.Model.Student;
 import com.mycompany.atencionpsico.View.MenuInicio;
 import java.sql.Connection;
@@ -17,7 +19,6 @@ import java.sql.SQLException;
  * @author jhojan
  */
 public class AtencionPsico {
-
     public static void main(String[] args) throws SQLException {
         Student estudiante1 = new Student("Patricia Ahumada", "patricia@email.com", "Ingeniería Civil");
         // Inicializar Menu Inicial
@@ -26,7 +27,8 @@ public class AtencionPsico {
         Connection conexion = Conexion.conectarDB();
         // Llamada al controller
         StudentController controladorEstudiante = new StudentController();
-        StudentController.getInfo(estudiante1);
+        PsychologistController controladorPasante = new PsychologistController();
+        //StudentController.getInfo(estudiante1);
         //controladorEstudiante.guardar(conexion, estudiante1);
     }
 }

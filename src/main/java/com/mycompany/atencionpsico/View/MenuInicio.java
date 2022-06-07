@@ -5,7 +5,12 @@
 package com.mycompany.atencionpsico.View;
 
 import com.mycompany.atencionpsico.Model.Conexion;
+import com.mycompany.atencionpsico.Model.Student;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import com.mycompany.atencionpsico.Controller.StudentController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -13,6 +18,10 @@ import java.sql.SQLException;
  * @author jhojan
  */
 public class MenuInicio extends javax.swing.JFrame {
+    private Student estudiante;
+    private StudentController estudianteControlador;
+    
+    private DatosEstudiante datosEstudiante;
 
     /**
      * Creates new form MenuInicio
@@ -154,6 +163,25 @@ public class MenuInicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try{
+            int codigoEstudiante = Integer.parseInt(jTextField1.getText());
+            //estudiante = new Student();
+            datosEstudiante = new DatosEstudiante(codigoEstudiante);
+            estudianteControlador = new StudentController();
+            estudianteControlador.accederEstudiante(codigoEstudiante);
+            datosEstudiante.setVisible(true);
+            this.setVisible(false);
+        }
+        catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(this,
+                "El campo Código es un número. Por favor intente de nuevo.",
+                "Ingrese un número",
+                JOptionPane.WARNING_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Botón para ingreso como Practicante
