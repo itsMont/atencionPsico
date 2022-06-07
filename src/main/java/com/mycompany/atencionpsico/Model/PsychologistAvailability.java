@@ -9,5 +9,23 @@ package com.mycompany.atencionpsico.Model;
  * @author jhojan
  */
 public class PsychologistAvailability {
+    private enum Disponibilidad{
+        Ocupado,
+        Disponible
+    }
+    private Disponibilidad DisponibilidadPracticante;
+
+    public PsychologistAvailability(Disponibilidad DisponibilidadPracticante) {
+        this.DisponibilidadPracticante = DisponibilidadPracticante;
+    }
+
+    public Disponibilidad getDisponibilidadPracticante() {
+        return DisponibilidadPracticante;
+    }
+
+    public void setDisponibilidadPracticante(Disponibilidad DisponibilidadPracticante) {
+        this.DisponibilidadPracticante = DisponibilidadPracticante;
+    }
+    
     
 }
