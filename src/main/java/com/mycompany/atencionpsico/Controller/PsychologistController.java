@@ -26,8 +26,8 @@ public class PsychologistController {
     private String tabla = "Psychologists";
     public TreeSet<Psychologist> listaPracticantes;
     
-    public TreeSet<Object[]> verPracticantes() throws SQLException{
-        TreeSet<Object[]> resultado = new TreeSet<>();
+    public ArrayList<Object[]> verPracticantes() throws SQLException{
+        ArrayList<Object[]> resultado = new ArrayList<>();
         Connection conexion = Conexion.conectarDB();
         PreparedStatement query;
         query = conexion.prepareStatement("SELECT * FROM " + this.tabla);
@@ -39,12 +39,12 @@ public class PsychologistController {
             
             while(lista.next()){
                 Object[] fila = new Object[meta.getColumnCount()];
+                // Agregar todo menos
                 for(int i = 0; i < fila.length; i++){
                     // (i+1) porque empieza a contar desde 1
                     fila[i] = lista.getObject(i+1);
-                    System.out.println(fila[i]);
-                };
-                resultado.add(fila);
+                }
+                
             }
             return resultado;
         }

@@ -25,9 +25,6 @@ public class Conexion {
         con = null;
         try {
             con =  DriverManager.getConnection(url, user, pass);
-            if (con != null) {
-                System.out.println("Conexión exitosa");
-            }
         } catch (Exception e) {
             // Llamar un Dialogo en caso de que falle algo con la BD
             JOptionPane.showMessageDialog(null,

@@ -165,12 +165,18 @@ public class IngresoPracticante extends javax.swing.JFrame {
             }
         }
         catch(NumberFormatException e){
-            System.out.println(e);
             JOptionPane.showMessageDialog(this,
                 "El campo Email es texto. Por favor intente de nuevo.",
                 "Ingrese Texto",
                 JOptionPane.WARNING_MESSAGE);
-        } catch (SQLException ex) {
+        }
+        catch(NullPointerException e){
+            JOptionPane.showMessageDialog(this,
+                "Ha ocurrido un error con la base de datos",
+                "No se puede procesar la petición",
+                JOptionPane.ERROR_MESSAGE);
+        }
+        catch (SQLException ex) {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

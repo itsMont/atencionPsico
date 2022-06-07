@@ -5,8 +5,18 @@
 package com.mycompany.atencionpsico.View;
 
 import com.mycompany.atencionpsico.Controller.PsychologistController;
+import com.mycompany.atencionpsico.Model.Conexion;
 import com.mycompany.atencionpsico.Model.Student;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.TreeSet;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -15,7 +25,7 @@ import java.sql.SQLException;
 public class DatosEstudiante extends javax.swing.JFrame {
     private PsychologistController controladorPasante;
     private Student estudiante;
-    private Integer codigo;
+    ArrayList<Object[]> datosPracticantes = new ArrayList<>();
      /**
      * Creates new form DatosUsuario
      */
@@ -25,8 +35,7 @@ public class DatosEstudiante extends javax.swing.JFrame {
         jLabel2.setText("Nombre: " + estudiante.getNombre());
         jLabel3.setText("Email: " + estudiante.getEmail());
         jLabel4.setText("Código: " + String.valueOf(estudiante.getCodigo()));
-        controladorPasante = new PsychologistController();
-        controladorPasante.verPracticantes();
+        cargar();
     }
 
     /**
@@ -42,6 +51,10 @@ public class DatosEstudiante extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,6 +71,40 @@ public class DatosEstudiante extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
         jLabel4.setText("Código");
 
+        jButton2.setBackground(new java.awt.Color(255, 0, 51));
+        jButton2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/close_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
+        jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Email", "Tutor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.getTableHeader().setResizingAllowed(false);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+
+        jLabel5.setFont(new java.awt.Font("Roboto Light", 0, 36)); // NOI18N
+        jLabel5.setText("Practicantes Disponibles");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,8 +119,17 @@ public class DatosEstudiante extends javax.swing.JFrame {
                             .addComponent(jLabel4)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(588, 588, 588)
-                        .addComponent(jLabel1)))
-                .addContainerGap(628, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(565, 565, 565)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,15 +142,73 @@ public class DatosEstudiante extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(782, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(111, 111, 111)
+                .addComponent(jButton2)
+                .addGap(60, 60, 60))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new MenuInicio().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    // Cargar datos a tabla de Practicantes    
+    public void cargar() throws SQLException{
+        DefaultTableModel modelo = new DefaultTableModel();
+        jTable1.setModel(modelo);
+        
+        controladorPasante = new PsychologistController();
+        datosPracticantes = controladorPasante.verPracticantes();
+        //DefaultTableModel modelo = 
+        for(Object obj: datosPracticantes){
+            System.out.println(obj);
+        }
+        ArrayList<Object[]> resultado = new ArrayList<>();
+        
+        try{
+            Connection conexion = Conexion.conectarDB();
+            PreparedStatement query;
+            query = conexion.prepareStatement("SELECT * FROM Psychologists");
+            ResultSet lista;
+            ResultSetMetaData meta;
+            lista = query.executeQuery();
+            meta = lista.getMetaData();
+            int numColumnas = meta.getColumnCount();
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Email");
+            modelo.addColumn("Tutor");
+            
+            while(lista.next()){
+                Object[] fila = new Object[numColumnas];
+                // Agregar todo menos
+                for(int i = 0; i < fila.length; i++){
+                    // (i+1) porque empieza a contar desde 1
+                    fila[i] = lista.getObject(i+1);
+                }
+                modelo.addRow(fila);
+            }
+            System.out.println(numColumnas);
+
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this,
+                "Algo raro ha ocurrido.",
+                "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+
+        }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -129,10 +243,14 @@ public class DatosEstudiante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
 

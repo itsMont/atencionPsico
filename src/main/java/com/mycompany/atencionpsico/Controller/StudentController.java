@@ -50,12 +50,13 @@ public class StudentController{
         String nombre, email, carrera;
         
         ArrayList<Object[]> resultado = new ArrayList<>();
-        Connection conexion = Conexion.conectarDB();
-        PreparedStatement query;
-        query = conexion.prepareStatement("SELECT * FROM " + this.tabla + " WHERE codigo = " + codigo);
         ResultSet lista;
         ResultSetMetaData meta;
         try{
+            Connection conexion = Conexion.conectarDB();
+            PreparedStatement query;
+            query = conexion.prepareStatement("SELECT * FROM " + this.tabla + " WHERE codigo = " + codigo);
+
             lista = query.executeQuery();
             meta = lista.getMetaData();
             Object[] fila = new Object[meta.getColumnCount()];
@@ -65,13 +66,11 @@ public class StudentController{
                 for(int i = 0; i < fila.length; i++){
                     // (i+1) porque empieza a contar desde 1
                     fila[i] = lista.getObject(i+1);
-                    System.out.println(fila[i]);
                 };
             }
             nombre = fila[1].toString();
             email = fila[2].toString();
             carrera = fila[3].toString();
-            System.out.println(nombre + " " + email);
             Student estudiante = new Student(codigo, nombre, email, carrera);
             return estudiante;
         }
