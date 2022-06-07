@@ -165,10 +165,11 @@ public class MenuInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             int codigoEstudiante = Integer.parseInt(jTextField1.getText());
-            //estudiante = new Student();
-            datosEstudiante = new DatosEstudiante(codigoEstudiante);
+            
             estudianteControlador = new StudentController();
-            if(estudianteControlador.accederEstudiante(codigoEstudiante) != null){
+            estudiante = estudianteControlador.accederEstudiante(codigoEstudiante);
+            if(estudiante != null){
+                datosEstudiante = new DatosEstudiante(estudiante);
                 datosEstudiante.setVisible(true);
                 this.setVisible(false);
             }
@@ -180,10 +181,7 @@ public class MenuInicio extends javax.swing.JFrame {
                 JOptionPane.WARNING_MESSAGE);
         } catch (SQLException ex) {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        
-        
+        }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Botón para ingreso como Practicante

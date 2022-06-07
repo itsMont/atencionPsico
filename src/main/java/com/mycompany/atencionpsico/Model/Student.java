@@ -20,6 +20,14 @@ public class Student{
         this.carrera = carrera;
     }
     
+    // Usar este constructor al llamar desde BD
+    public Student(int codigo, String nombre, String email, String carrera) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.email = email;
+        this.carrera = carrera;
+    }
+    
     // Setters
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;

@@ -13,6 +13,12 @@ public class Psychologist {
     private String email;
     private Tutor tutorAsignado;
 
+    public Psychologist(String nombre, String email, Tutor tutorAsignado) {
+        this.nombre = nombre;
+        this.email = email;
+        this.tutorAsignado = tutorAsignado;
+    }
+
     //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -21,7 +27,7 @@ public class Psychologist {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     public void setTutorAsignado(Tutor tutorAsignado) {
         this.tutorAsignado = tutorAsignado;
     }

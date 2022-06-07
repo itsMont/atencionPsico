@@ -11,6 +11,15 @@ package com.mycompany.atencionpsico.Model;
 public class Tutor {
     private String nombre;
     private String email;
+
+    public Tutor(String nombre, String email) {
+        this.nombre = nombre;
+        this.email = email;
+    }
+     public Tutor(String nombre) {
+        this.nombre = nombre;
+    }
+    
     //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;

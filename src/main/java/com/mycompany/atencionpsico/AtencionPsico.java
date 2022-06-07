@@ -20,7 +20,7 @@ import java.sql.SQLException;
  */
 public class AtencionPsico {
     public static void main(String[] args) throws SQLException {
-        Student estudiante1 = new Student("Patricia Ahumada", "patricia@email.com", "Ingeniería Civil");
+        Student estudiante1 = new Student("Alfredo Moreno", "alfredoM@unal.edu.co", "Física");
         // Inicializar Menu Inicial
         new MenuInicio().setVisible(true);
         

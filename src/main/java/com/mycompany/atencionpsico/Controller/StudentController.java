@@ -72,7 +72,7 @@ public class StudentController{
             email = fila[2].toString();
             carrera = fila[3].toString();
             System.out.println(nombre + " " + email);
-            Student estudiante = new Student(nombre, email, carrera);
+            Student estudiante = new Student(codigo, nombre, email, carrera);
             return estudiante;
         }
         

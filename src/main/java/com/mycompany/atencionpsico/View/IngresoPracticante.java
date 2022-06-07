@@ -4,6 +4,14 @@
  */
 package com.mycompany.atencionpsico.View;
 
+import com.mycompany.atencionpsico.Controller.PsychologistController;
+import com.mycompany.atencionpsico.Controller.StudentController;
+import com.mycompany.atencionpsico.Model.Psychologist;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jhojan
@@ -143,6 +151,28 @@ public class IngresoPracticante extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+         // TODO add your handling code here:
+        try{
+            String email = jTextField1.getText();
+            
+            PsychologistController practicanteControlador = new PsychologistController();
+            Psychologist practicante = practicanteControlador.accederPracticante(email);
+            if(practicante != null){
+                practicante.getNombre();
+                DatosPracticante datosPracticante = new DatosPracticante(practicante);
+                datosPracticante.setVisible(true);
+                this.setVisible(false);
+            }
+        }
+        catch(NumberFormatException e){
+            System.out.println(e);
+            JOptionPane.showMessageDialog(this,
+                "El campo Email es texto. Por favor intente de nuevo.",
+                "Ingrese Texto",
+                JOptionPane.WARNING_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

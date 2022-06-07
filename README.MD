@@ -17,7 +17,7 @@ Tiene el objetivo de ser un sistema de información donde los estudiantes puedan
 - ~~Uso de Colecciones de tipo Set~~
 - ~~Imprimir todos los practicantes registrados en el sistema~~
 - Obtener la disponibilidad de un practicante, dado su correo electrónico y un rango de tiempo
-- Obtener la información de un estudiante a partir de su código
+- ~~Obtener la información de un estudiante a partir de su código~~
 - Obtener la información de un practicante a partir de su correo electrónico
 - Obtener la información de un profesor tutor a partir de su correo electrónico
 - Obtener la iformación de todas las consultas a las que ha asistido un estudiante a partir de su código

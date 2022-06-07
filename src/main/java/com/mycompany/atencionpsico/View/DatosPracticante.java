@@ -5,28 +5,27 @@
 package com.mycompany.atencionpsico.View;
 
 import com.mycompany.atencionpsico.Controller.PsychologistController;
+import com.mycompany.atencionpsico.Model.Psychologist;
 import com.mycompany.atencionpsico.Model.Student;
-import java.sql.SQLException;
 
 /**
  *
  * @author jhojan
  */
-public class DatosEstudiante extends javax.swing.JFrame {
+public class DatosPracticante extends javax.swing.JFrame {
     private PsychologistController controladorPasante;
-    private Student estudiante;
-    private Integer codigo;
-     /**
-     * Creates new form DatosUsuario
+    private Psychologist practicante;
+
+
+    /**
+     * Creates new form DatosPracticante
      */
-    public DatosEstudiante(Student estudiante) throws SQLException {
-        this.estudiante = estudiante;
+    public DatosPracticante(Psychologist practicante) {
+        this.practicante = practicante; 
         initComponents();
-        jLabel2.setText("Nombre: " + estudiante.getNombre());
-        jLabel3.setText("Email: " + estudiante.getEmail());
-        jLabel4.setText("Código: " + String.valueOf(estudiante.getCodigo()));
-        controladorPasante = new PsychologistController();
-        controladorPasante.verPracticantes();
+        jLabel2.setText("Nombre: " + practicante.getNombre());
+        jLabel3.setText("Email: " + practicante.getEmail());
+        jLabel4.setText("Tutor: " + practicante.getTutorAsignado().getNombre());
     }
 
     /**
@@ -47,16 +46,16 @@ public class DatosEstudiante extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/person_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
-        jLabel1.setText("Panel de Usuario");
+        jLabel1.setText("Datos de Practicante");
 
         jLabel2.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabel2.setText("Nombre: ");
+        jLabel2.setText("Nombre:");
 
         jLabel3.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabel3.setText("Carrera:");
+        jLabel3.setText("Email: ");
 
         jLabel4.setFont(new java.awt.Font("Roboto Light", 0, 24)); // NOI18N
-        jLabel4.setText("Código");
+        jLabel4.setText("Tutor:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,28 +64,28 @@ public class DatosEstudiante extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(522, 522, 522)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel4)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(588, 588, 588)
-                        .addComponent(jLabel1)))
-                .addContainerGap(628, Short.MAX_VALUE))
+                            .addComponent(jLabel4))))
+                .addContainerGap(587, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addGap(16, 16, 16)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(782, Short.MAX_VALUE))
+                .addContainerGap(766, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,21 +108,21 @@ public class DatosEstudiante extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DatosEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosPracticante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DatosEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosPracticante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DatosEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosPracticante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DatosEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DatosPracticante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        /*
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DatosEstudiante().setVisible(true);
+                new DatosPracticante().setVisible(true);
             }
         });*/
     }
@@ -134,7 +133,4 @@ public class DatosEstudiante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
-
-
-
 }
