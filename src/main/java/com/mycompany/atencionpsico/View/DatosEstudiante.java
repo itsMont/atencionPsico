@@ -24,7 +24,7 @@ public class DatosEstudiante extends javax.swing.JFrame {
         initComponents();
         jLabel4.setText("Código:" + codigo);
         controladorPasante = new PsychologistController();
-        controladorPasante.verPracticantes();
+        //controladorPasante.verPracticantes();
     }
 
     /**

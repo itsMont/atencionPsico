@@ -168,9 +168,10 @@ public class MenuInicio extends javax.swing.JFrame {
             //estudiante = new Student();
             datosEstudiante = new DatosEstudiante(codigoEstudiante);
             estudianteControlador = new StudentController();
-            estudianteControlador.accederEstudiante(codigoEstudiante);
-            datosEstudiante.setVisible(true);
-            this.setVisible(false);
+            if(estudianteControlador.accederEstudiante(codigoEstudiante) != null){
+                datosEstudiante.setVisible(true);
+                this.setVisible(false);
+            }
         }
         catch(NumberFormatException e){
             JOptionPane.showMessageDialog(this,
@@ -180,6 +181,7 @@ public class MenuInicio extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(MenuInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         
         
     }//GEN-LAST:event_jButton1ActionPerformed

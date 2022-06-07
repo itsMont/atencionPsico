@@ -26,8 +26,8 @@ public class AtencionPsico {
         
         Connection conexion = Conexion.conectarDB();
         // Llamada al controller
-        StudentController controladorEstudiante = new StudentController();
-        PsychologistController controladorPasante = new PsychologistController();
+        //StudentController controladorEstudiante = new StudentController();
+        //PsychologistController controladorPasante = new PsychologistController();
         //StudentController.getInfo(estudiante1);
         //controladorEstudiante.guardar(conexion, estudiante1);
     }
