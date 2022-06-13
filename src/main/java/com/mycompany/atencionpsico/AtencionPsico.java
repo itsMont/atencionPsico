@@ -20,13 +20,13 @@ import java.sql.SQLException;
  */
 public class AtencionPsico {
     public static void main(String[] args) throws SQLException {
-        Student estudiante1 = new Student("Alfredo Moreno", "alfredoM@unal.edu.co", "Física");
+        //Student estudiante1 = new Student("Alfredo Moreno", "alfredoM@unal.edu.co", "Física");
         // Inicializar Menu Inicial
         new MenuInicio().setVisible(true);
         
         Connection conexion = Conexion.conectarDB();
         // Llamada al controller
-        //StudentController controladorEstudiante = new StudentController();
+        StudentController controladorEstudiante = new StudentController();
         //PsychologistController controladorPasante = new PsychologistController();
         //StudentController.getInfo(estudiante1);
         //controladorEstudiante.guardar(conexion, estudiante1);

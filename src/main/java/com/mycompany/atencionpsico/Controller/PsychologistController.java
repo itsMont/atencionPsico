@@ -96,6 +96,48 @@ public class PsychologistController {
         }
         return null;
     }
+    
+    public Psychologist accederPracticanteNombre(String nombre) throws SQLException{
+        String email, tutorNombre;
+        
+        ArrayList<Object[]> resultado = new ArrayList<>();
+        Connection conexion = Conexion.conectarDB();
+        PreparedStatement query;
+        query = conexion.prepareStatement("SELECT * FROM " + this.tabla + " WHERE nombre = '" + nombre +"'");
+        ResultSet lista;
+        ResultSetMetaData meta;
+        try{
+            lista = query.executeQuery();
+            meta = lista.getMetaData();
+            Object[] fila = new Object[meta.getColumnCount()];
+            
+            while(lista.next()){
+                fila = new Object[meta.getColumnCount()];
+                for(int i = 0; i < fila.length; i++){
+                    // (i+1) porque empieza a contar desde 1
+                    fila[i] = lista.getObject(i+1);
+                };
+            }
+            nombre = fila[0].toString();
+            email = fila[1].toString();
+            tutorNombre = fila[2].toString();
+            Tutor tutor = new Tutor(tutorNombre);
+            Psychologist practicante = new Psychologist(nombre, email, tutor);
+            return practicante;
+        }
+        
+        catch(NullPointerException exce){
+            JOptionPane.showMessageDialog(null,
+                "Estás ingresando el email de un practicante inexistente",
+                "Practicante no registrado",
+                JOptionPane.WARNING_MESSAGE);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+
 
     
     
